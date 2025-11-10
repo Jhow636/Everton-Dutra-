@@ -57,6 +57,29 @@ body {
   line-height: 1.7;
 }
 
+button, input, select, textarea {
+  font: inherit;
+  color: inherit;
+}
+
+.faq-q {
+  color: var(--text);    
+}
+
+.faq-q[aria-expanded="true"],
+.faq-q:hover,
+.faq-q:focus-visible {
+  color: var(--primary);
+}
+
+.faq-q::after {
+  color: currentColor;       
+}
+
+.faq-q {
+  -webkit-tap-highlight-color: transparent;
+}
+
 img {
   max-width: 100%;
   display: block;
@@ -607,7 +630,7 @@ html:not(.js) .reveal {
   position: relative;
   color: #fff;
   padding: clamp(60px, 10vw, 100px) 0;
-  background-image: url('Fotos/foto-divan.jpg'); /* troque pelo caminho da imagem */
+  background-image: url('Fotos/foto-divan.jpg'); 
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -615,16 +638,14 @@ html:not(.js) .reveal {
   overflow: hidden;
 }
 
-/* Camada de escurecimento para contraste do texto */
 .section-analise::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.65); /* aumentei a opacidade pra leitura melhor */
+  background: rgba(0, 0, 0, 0.65); 
   z-index: 0;
 }
 
-/* Conteúdo fica acima do overlay */
 .section-analise .grid {
   position: relative;
   z-index: 1;
@@ -632,7 +653,6 @@ html:not(.js) .reveal {
   gap: clamp(24px, 4vw, 48px);
 }
 
-/* Coluna da imagem */
 .analise-img {
   position: relative;
   min-height: clamp(320px, 60vh, 720px);
@@ -650,7 +670,6 @@ html:not(.js) .reveal {
   object-position: center;
 }
 
-/* Coluna de texto */
 .analise-text {
   display: flex;
   flex-direction: column;
@@ -698,7 +717,6 @@ html:not(.js) .reveal {
   font-size: 16px;
 }
 
-/* Responsivo */
 @media (max-width: 768px) {
   .section-analise .grid {
     grid-template-columns: 1fr;
