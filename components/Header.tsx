@@ -4,17 +4,14 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState, useEffect, useRef, useCallback } from 'react';
 
-function scrollTo(id: string) {
-  const el = document.getElementById(id);
-  if (!el) return;
-  const offset = 50;
-  const top = el.getBoundingClientRect().top + window.scrollY - offset;
-  window.scrollTo({ top, behavior: 'smooth' });
-}
+const navItems = [
+  { label: 'Sobre',   href: '/sobre'   },
+  { label: 'FAQ',     href: '/faq'     },
+  { label: 'Contato', href: '/contato' },
+];
 
 export default function Header() {
   const pathname = usePathname();
-  const isHome = pathname === '/';
   const headerRef = useRef<HTMLElement>(null);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -47,30 +44,6 @@ export default function Header() {
     return () => { document.body.style.overflow = ''; };
   }, [menuOpen]);
 
-  const navItems = [
-    { label: 'Sobre', href: '/sobre', anchor: 'sobre' },
-    { label: 'FAQ', href: '/faq', anchor: 'faq' },
-    { label: 'Contato', href: '/contato', anchor: 'contato' },
-  ];
-
-  function handleNavClick(e: React.MouseEvent, anchor: string) {
-    if (isHome) {
-      e.preventDefault();
-      scrollTo(anchor);
-      close();
-    } else {
-      close();
-    }
-  }
-
-  function handleCtaClick(e: React.MouseEvent) {
-    if (isHome) {
-      e.preventDefault();
-      scrollTo('agendar');
-    }
-    close();
-  }
-
   return (
     <header className="topbar" ref={headerRef}>
       <div className="wrap topbar-inner">
@@ -83,22 +56,14 @@ export default function Header() {
         {/* Desktop nav */}
         <nav className="nav" aria-label="Principal">
           {navItems.map((item) => (
-            <Link
-              key={item.anchor}
-              href={isHome ? `#${item.anchor}` : item.href}
-              onClick={(e) => handleNavClick(e, item.anchor)}
-            >
+            <Link key={item.href} href={item.href} onClick={close}>
               {item.label}
             </Link>
           ))}
         </nav>
 
         {/* CTA pill */}
-        <Link
-          href={isHome ? '#agendar' : '/#agendar'}
-          className="cta-mini"
-          onClick={handleCtaClick}
-        >
+        <Link href="/agendar" className="cta-mini" onClick={close}>
           Agendar
         </Link>
 
@@ -136,9 +101,9 @@ export default function Header() {
         >
           {navItems.map((item) => (
             <Link
-              key={item.anchor}
-              href={isHome ? `#${item.anchor}` : item.href}
-              onClick={(e) => handleNavClick(e, item.anchor)}
+              key={item.href}
+              href={item.href}
+              onClick={close}
               style={{
                 fontFamily: 'var(--sans)',
                 fontSize: '15px',
@@ -153,9 +118,9 @@ export default function Header() {
           ))}
           <div style={{ paddingTop: '12px' }}>
             <Link
-              href={isHome ? '#agendar' : '/#agendar'}
+              href="/agendar"
               className="cta-mini"
-              onClick={handleCtaClick}
+              onClick={close}
               style={{ width: '100%', justifyContent: 'center' }}
             >
               Agendar
