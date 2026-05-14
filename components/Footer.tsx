@@ -42,7 +42,7 @@ export default function Footer() {
 
         <div className="foot-bottom">
           <p>© {year} Everton Dutra. Todos os direitos reservados.</p>
-          <p>Psicanálise — Atendimento online</p>
+
         </div>
       </div>
     </footer>
