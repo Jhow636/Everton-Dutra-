@@ -57,10 +57,6 @@ export default function BookingSection() {
             </span>
           </div>
           <div className="booking-info-row">
-            <span className="bi-label">Horários</span>
-            <span className="bi-value">Seg — Sex, 09h às 20h</span>
-          </div>
-          <div className="booking-info-row">
             <span className="bi-label">Modalidade</span>
             <span className="bi-value">Online — Brasil e exterior</span>
           </div>

@@ -7,10 +7,10 @@ export default function Footer() {
           {/* Col 1 — quote */}
           <div>
             <p className="foot-quote">
-              &ldquo;A clínica psicanalítica é um espaço de escuta radical — onde o sujeito encontra
+              &ldquo;A clínica psicanalítica é um espaço de escuta radical onde o sujeito encontra
               lugar para dizer e, ao dizer, se escutar.&rdquo;
             </p>
-            <p>Everton Dutra — Psicanalista</p>
+            <p>Everton Dutra, Psicanalista</p>
           </div>
 
           {/* Col 2 — contato */}
@@ -33,18 +33,16 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Col 3 — consultório */}
+          {/* Col 3 — atendimento */}
           <div>
-            <h3>Consultório</h3>
-            <p>Belo Horizonte / MG</p>
-            <p>Atendimento online para o Brasil e exterior</p>
-            <p>Seg — Sex, 09h às 20h</p>
+            <h3>Atendimento</h3>
+            <p>Online — Brasil e exterior</p>
           </div>
         </div>
 
         <div className="foot-bottom">
           <p>© {year} Everton Dutra. Todos os direitos reservados.</p>
-          <p>Psicanálise — Atendimento online e presencial</p>
+          <p>Psicanálise — Atendimento online</p>
         </div>
       </div>
     </footer>
