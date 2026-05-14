@@ -1,29 +1,50 @@
-import Link from 'next/link';
-
 export default function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer className="section" aria-label="Rodapé">
-      <div className="container footer-grid">
-        <div>
-          <div className="brand" style={{ marginBottom: '10px' }}>
-            <span className="brand-badge" />
-            <span className="font-name">Everton Dutra Psicanalista</span>
+    <footer className="foot" aria-label="Rodapé">
+      <div className="wrap">
+        <div className="foot-grid">
+          {/* Col 1 — quote */}
+          <div>
+            <p className="foot-quote">
+              &ldquo;A clínica psicanalítica é um espaço de escuta radical — onde o sujeito encontra
+              lugar para dizer e, ao dizer, se escutar.&rdquo;
+            </p>
+            <p>Everton Dutra — Psicanalista</p>
           </div>
-          <p className="muted">© {year} Todos os direitos reservados Everton Dutra.</p>
+
+          {/* Col 2 — contato */}
+          <div>
+            <h3>Contato</h3>
+            <p>
+              <a href="mailto:E.dutra2101@gmail.com">E.dutra2101@gmail.com</a>
+            </p>
+            <p>
+              <a href="https://wa.me/5531995563539">+55 31 99556-3539</a>
+            </p>
+            <p>
+              <a
+                href="https://instagram.com/everton_dutra_psicanalista"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                @everton_dutra_psicanalista
+              </a>
+            </p>
+          </div>
+
+          {/* Col 3 — consultório */}
+          <div>
+            <h3>Consultório</h3>
+            <p>Belo Horizonte / MG</p>
+            <p>Atendimento online para o Brasil e exterior</p>
+            <p>Seg — Sex, 09h às 20h</p>
+          </div>
         </div>
-        <div>
-          <h3>Atendimento</h3>
-          <p className="muted">Online • <Link href="/agendar" style={{ color: 'var(--c-teal)' }}>Agende seu horário</Link></p>
-        </div>
-        <div>
-          <h3>Navegação</h3>
-          <nav style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-            <Link href="/sobre" className="muted" style={{ fontSize: '14px' }}>Sobre</Link>
-            <Link href="/faq" className="muted" style={{ fontSize: '14px' }}>FAQ</Link>
-            <Link href="/contato" className="muted" style={{ fontSize: '14px' }}>Contato</Link>
-            <Link href="/agendar" className="muted" style={{ fontSize: '14px' }}>Agendar</Link>
-          </nav>
+
+        <div className="foot-bottom">
+          <p>© {year} Everton Dutra. Todos os direitos reservados.</p>
+          <p>Psicanálise — Atendimento online e presencial</p>
         </div>
       </div>
     </footer>

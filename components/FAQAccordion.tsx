@@ -9,38 +9,31 @@ interface FAQItem {
 }
 
 export default function FAQAccordion({ items }: { items: FAQItem[] }) {
-  const [openId, setOpenId] = useState<string | null>(null);
+  const [openIdx, setOpenIdx] = useState<number | null>(0);
 
-  const toggle = (id: string) => setOpenId((prev) => (prev === id ? null : id));
+  const toggle = (idx: number) => setOpenIdx((prev) => (prev === idx ? null : idx));
 
   return (
     <div className="faq">
-      {items.map((item) => {
-        const isOpen = openId === item.id;
+      {items.map((item, idx) => {
+        const isOpen = openIdx === idx;
         return (
-          <article key={item.id} className="card faq-item">
-            <h3>
-              <button
-                className="faq-q"
-                aria-expanded={isOpen}
-                aria-controls={item.id}
-                id={`${item.id}-btn`}
-                onClick={() => toggle(item.id)}
-              >
-                {item.question}
-              </button>
-            </h3>
-            <div
-              className="faq-a"
-              id={item.id}
-              role="region"
-              aria-labelledby={`${item.id}-btn`}
-              hidden={!isOpen}
-              tabIndex={-1}
+          <div key={item.id} className={`faq-item${isOpen ? ' open' : ''}`}>
+            <button
+              className="faq-trigger"
+              aria-expanded={isOpen}
+              onClick={() => toggle(idx)}
             >
-              <p>{item.answer}</p>
+              <span className="q-num">{String(idx + 1).padStart(2, '0')}</span>
+              <span className="q-text">{item.question}</span>
+              <span className="toggle">+</span>
+            </button>
+            <div className="faq-answer">
+              <div className="faq-answer-inner">
+                <p>{item.answer}</p>
+              </div>
             </div>
-          </article>
+          </div>
         );
       })}
     </div>
