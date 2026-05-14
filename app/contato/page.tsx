@@ -56,7 +56,7 @@ export default function ContatoPage() {
                   Prefere escolher um horário agora?
                 </p>
                 <Link href="/agendar" className="btn btn-howitworks">
-                  Agendar pelo Cal.com
+                  Agendar agora →
                 </Link>
               </div>
             </article>
