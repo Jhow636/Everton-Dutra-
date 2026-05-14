@@ -86,7 +86,7 @@ export default function HomePage() {
         <div className="wrap">
           <div className="section-head reveal">
             <span className="eyebrow">Minha abordagem</span>
-            <h2 className="h-2">Psicanálise de orientação lacaniana.</h2>
+            <h2 className="h-2">Psicanálise freudiana.</h2>
           </div>
           <div className="abordagem-grid">
             {features.map((f) => (
