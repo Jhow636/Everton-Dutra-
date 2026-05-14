@@ -51,7 +51,7 @@ export default function AgendarPage() {
                 href="https://wa.me/5531995563539?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20sess%C3%A3o%20de%20psican%C3%A1lise."
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{ color: 'var(--primary)', fontWeight: 600 }}
+                style={{ color: 'var(--accent)', fontWeight: 600 }}
               >
                 Clique aqui →
               </Link>
