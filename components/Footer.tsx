@@ -36,7 +36,7 @@ export default function Footer() {
           {/* Col 3 — atendimento */}
           <div>
             <h3>Atendimento</h3>
-            <p>Online — Brasil e exterior</p>
+            <p>Atendimento online</p>
           </div>
         </div>
 
