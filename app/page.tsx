@@ -1,56 +1,52 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import HomeFAQ from '@/components/HomeFAQ';
-import BookingSection from '@/components/BookingSection';
+import Link from 'next/link';
+import FAQAccordion from '@/components/FAQAccordion';
 
 export const metadata: Metadata = {
-  title: 'Everton Dutra — Psicanalista | Psicanálise Online e Presencial',
+  title: 'Everton Dutra — Psicanalista | Psicanálise Online',
   description:
-    'Atendimento em psicanálise com Everton Dutra. Uma travessia ao silêncio e à palavra. Sessões online para o Brasil e exterior e presenciais em Belo Horizonte.',
+    'Atendimento em psicanálise com Everton Dutra. Um espaço de escuta e presença, onde o humano encontra o humano, no seu tempo e na sua verdade. Sessões online para o Brasil e exterior.',
   alternates: { canonical: 'https://evertondutra.com.br' },
 };
 
 const principles = [
   {
     num: '01',
-    title: 'A escuta como presença',
-    body: 'Antes de interpretar, é preciso escutar. A presença do analista cria o campo em que a palavra do sujeito pode emergir sem julgamento.',
+    title: 'Escuta sem julgamento',
+    body: 'Um espaço onde o que é dito não é medido nem julgado — apenas escutado, em sua profundidade e singularidade.',
   },
   {
     num: '02',
-    title: 'O inconsciente como guia',
-    body: 'Sonhos, lapsos, sintomas — o inconsciente se manifesta onde menos se espera. A análise aprende a ler essas formações.',
+    title: 'O tempo do sujeito',
+    body: 'Cada análise tem seu próprio ritmo. Não há protocolo, há um percurso construído a cada sessão.',
   },
   {
     num: '03',
-    title: 'O tempo do sujeito',
-    body: 'Cada processo tem seu próprio ritmo. A análise não segue protocolos: segue o sujeito, seu tempo e suas possibilidades.',
-  },
-  {
-    num: '04',
-    title: 'A transferência como motor',
-    body: 'O vínculo analítico não é um obstáculo — é o principal instrumento do trabalho. É nela que o sujeito repete e, repetindo, pode mudar.',
-  },
-  {
-    num: '05',
-    title: 'A palavra que transforma',
-    body: 'Dizer é diferente de pensar. Quando o sujeito fala e se escuta, algo se desloca. A palavra tem efeito sobre o corpo e sobre o laço social.',
-  },
-  {
-    num: '06',
-    title: 'A ética do desejo',
-    body: 'A análise não prescreve como viver. Ela visa que o sujeito se torne capaz de sustentar seu próprio desejo — com mais liberdade.',
+    title: 'Sigilo absoluto',
+    body: 'O que é dito permanece no espaço do consultório. A confidencialidade é fundamento ético da prática.',
   },
 ];
 
-const themes = [
-  { name: 'Ansiedade e ataques de pânico', tag: 'Sofrimento psíquico' },
-  { name: 'Depressão e vazio existencial', tag: 'Afeto' },
-  { name: 'Conflitos relacionais e amorosos', tag: 'Laço social' },
-  { name: 'Questões identitárias e de gênero', tag: 'Subjetividade' },
-  { name: 'Luto e perdas', tag: 'Elaboração' },
-  { name: 'Inibição, procrastinação, bloqueios', tag: 'Sintoma' },
-  { name: 'Autoconhecimento e desenvolvimento', tag: 'Desejo' },
+const faqPreview = [
+  {
+    id: 'hp-faq1',
+    question: 'Como funciona a primeira escuta?',
+    answer:
+      'A primeira escuta é um encontro inicial, sem compromisso de continuidade. É um espaço para você apresentar o que o traz à análise e, juntos, conversarmos sobre como a clínica pode acolher essa demanda. Não há diagnóstico nem prescrição — apenas escuta.',
+  },
+  {
+    id: 'hp-faq2',
+    question: 'Qual a frequência das sessões?',
+    answer:
+      'Recomenda-se ao menos uma sessão semanal. A psicanálise sustenta-se na constância — é nessa regularidade que o trabalho do inconsciente encontra continuidade.',
+  },
+  {
+    id: 'hp-faq3',
+    question: 'O atendimento online tem a mesma profundidade?',
+    answer:
+      'Sim. O dispositivo analítico funciona em sua dimensão simbólica: a palavra, a escuta, a transferência. O atendimento online, conduzido com seriedade, sustenta integralmente a clínica e amplia o acesso a quem está fora de Belo Horizonte ou prefere o conforto de casa.',
+  },
 ];
 
 export default function HomePage() {
@@ -60,40 +56,35 @@ export default function HomePage() {
       <section className="hero">
         <div className="wrap">
           <p className="eyebrow reveal" style={{ marginBottom: '16px' }}>
-            ● Atendimento online e presencial — Belo Horizonte
+            <span style={{ color: 'var(--accent)' }}>●</span>&nbsp;&nbsp;Atendimento online — Brasil e exterior
           </p>
           <div className="hero-grid split">
-            {/* Left: copy */}
             <div>
-              <h1 className="h-display hero-title reveal">
+              <h1 className="h-1 hero-title reveal">
                 Uma travessia<br />
-                ao <em style={{ fontStyle: 'italic' }}>silêncio</em><br />
+                ao <em style={{ fontStyle: 'italic', color: 'var(--accent)' }}>silêncio</em><br />
                 e à palavra.
               </h1>
               <p className="lede reveal">
                 Cada sessão é um encontro singular — um tempo dedicado à escuta
                 profunda, sem julgamentos.
               </p>
-              <div
-                className="reveal"
-                style={{ display: 'flex', gap: '12px', marginTop: '28px', flexWrap: 'wrap' }}
-              >
-                <a href="#agendar" className="btn">
-                  Agendar primeira escuta →
-                </a>
-                <a href="#sobre" className="btn ghost">
+              <div className="reveal" style={{ display: 'flex', gap: '12px', marginTop: '28px', flexWrap: 'wrap' }}>
+                <Link href="/agendar" className="btn">
+                  Agendar primeira escuta&nbsp;→
+                </Link>
+                <Link href="/sobre" className="btn ghost">
                   Conhecer Everton
-                </a>
+                </Link>
               </div>
-
               <div className="hero-meta reveal">
                 <div className="hero-meta-item">
                   <span className="label">Modalidade</span>
-                  <span className="value">Online · Presencial</span>
+                  <span className="value">Online</span>
                 </div>
                 <div className="hero-meta-item">
                   <span className="label">Sessões</span>
-                  <span className="value">50 min</span>
+                  <span className="value">50 minutos</span>
                 </div>
                 <div className="hero-meta-item">
                   <span className="label">Frequência</span>
@@ -102,7 +93,6 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Right: photo */}
             <div className="hero-figure reveal">
               <Image
                 src="/fotos/img2-everton.jpg"
@@ -110,24 +100,36 @@ export default function HomePage() {
                 width={600}
                 height={750}
                 priority
-                className="hero-figure-img"
-                style={{ width: '100%', height: 'auto', aspectRatio: '4/5', objectFit: 'cover', borderRadius: '2px' }}
+                style={{ width: '100%', height: '100%', aspectRatio: '4/5', objectFit: 'cover', borderRadius: '2px', display: 'block' }}
               />
-              <p className="hero-figure-caption">Everton Dutra — Psicanalista</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── Sobre ── */}
-      <section className="section" id="sobre">
+      {/* ── Abordagem ── */}
+      <section className="section tinted" id="abordagem">
         <div className="wrap">
           <div className="section-head reveal">
-            <span className="eyebrow">01 / Sobre</span>
-            <h2 className="h-1">Uma trajetória de escuta.</h2>
+            <span className="eyebrow">Abordagem</span>
+            <h2 className="h-2">A escuta como método.</h2>
           </div>
+          <div className="abordagem-grid">
+            {principles.map((p) => (
+              <article key={p.num} className="principle reveal">
+                <span className="num">{p.num}</span>
+                <p className="title">{p.title}</p>
+                <p className="body">{p.body}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Sobre (prévia) ── */}
+      <section className="section" id="sobre">
+        <div className="wrap">
           <div className="sobre-grid">
-            {/* Portrait */}
             <div className="reveal">
               <Image
                 src="/fotos/img1-everton.jpg"
@@ -135,40 +137,30 @@ export default function HomePage() {
                 width={480}
                 height={640}
                 className="portrait"
-                style={{ width: '100%', aspectRatio: '3/4', objectFit: 'cover', borderRadius: '2px' }}
+                style={{ width: '100%', aspectRatio: '3/4', objectFit: 'cover', borderRadius: '2px', display: 'block' }}
               />
             </div>
-
-            {/* Texto */}
             <div className="sobre-body reveal">
+              <div className="section-head" style={{ marginBottom: '24px' }}>
+                <span className="eyebrow">Sobre</span>
+                <h2 className="h-2">Uma trajetória de escuta.</h2>
+              </div>
               <p>
-                <strong>Meu interesse pela psicanálise</strong> nasceu de dentro — da própria experiência
-                com a escuta e com o autoconhecimento. Foram anos de mergulho interior, de autoanálise e
-                de uma busca incessante por compreender a vida, os afetos e a complexidade da mente humana.
+                Meu interesse pela psicanálise nasceu da própria experiência com a terapia e com o
+                autoconhecimento. Foram anos de mergulho interior, de autoanálise e de uma busca
+                incessante por compreender a vida, os afetos e a complexidade da mente humana.
               </p>
               <p>
-                Esse percurso me conduziu, de forma natural, a um lugar de escuta — não apenas do outro,
-                mas também de mim mesmo. Compreendi que a psicanálise não é apenas uma técnica: é uma
-                ética, uma forma de estar com o outro em sua singularidade.
+                Esse percurso me conduziu, de forma natural, a um lugar de escuta — não apenas do
+                outro, mas também de mim mesmo.
               </p>
-              <p>
-                Atendo adultos em sofrimento psíquico de diversas naturezas — ansiedade, depressão,
-                conflitos relacionais, questões identitárias, luto e bloqueios existenciais — sempre a
-                partir de uma escuta que respeita o tempo e a verdade de cada sujeito.
-              </p>
-
               <blockquote className="pullquote">
-                &ldquo;A análise não promete respostas. Oferece algo mais valioso: a possibilidade de se
-                tornar autor da própria história.&rdquo;
+                &ldquo;Hoje, encontro na psicanálise um espaço onde posso unir reflexão, presença e humanidade.&rdquo;
               </blockquote>
-
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-                <p style={{ margin: 0 }}>
-                  <strong>Formação</strong> — Psicanálise, com aprofundamento na obra de Freud e Lacan.
-                </p>
-                <p style={{ margin: 0 }}>
-                  <strong>Abordagem</strong> — Psicanalítica de orientação lacaniana.
-                </p>
+              <div style={{ marginTop: '8px' }}>
+                <Link href="/sobre" className="btn ghost">
+                  Conhecer mais&nbsp;→
+                </Link>
               </div>
             </div>
           </div>
@@ -184,62 +176,38 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Abordagem ── */}
-      <section className="section tinted" id="abordagem">
-        <div className="wrap">
-          <div className="section-head reveal">
-            <span className="eyebrow">02 / Abordagem</span>
-            <h2 className="h-1">A escuta como método.</h2>
-          </div>
-          <div className="abordagem-grid">
-            {principles.map((p) => (
-              <article key={p.num} className="principle reveal">
-                <span className="num">{p.num}</span>
-                <h3 className="title">{p.title}</h3>
-                <p className="body">{p.body}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Temas ── */}
-      <section className="section" id="temas">
-        <div className="wrap">
-          <div className="section-head reveal">
-            <span className="eyebrow">03 / Para quem</span>
-            <h2 className="h-1">A análise se oferece a quem deseja escutar-se.</h2>
-          </div>
-          <div className="themes">
-            {themes.map((t) => (
-              <div key={t.name} className="theme-row reveal">
-                <span className="theme-name">{t.name}</span>
-                <span className="theme-tag">{t.tag}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── FAQ ── */}
+      {/* ── FAQ (prévia) ── */}
       <section className="section tinted" id="faq">
         <div className="wrap">
           <div className="section-head reveal">
-            <span className="eyebrow">04 / Como funciona</span>
-            <h2 className="h-1">Perguntas frequentes.</h2>
+            <span className="eyebrow">Como funciona</span>
+            <h2 className="h-2">Perguntas frequentes.</h2>
           </div>
-          <HomeFAQ />
+          <FAQAccordion items={faqPreview} />
+          <div style={{ marginTop: '40px' }}>
+            <Link href="/faq" className="btn ghost">
+              Ver todas as perguntas&nbsp;→
+            </Link>
+          </div>
         </div>
       </section>
 
-      {/* ── Booking ── */}
-      <section className="section" id="agendar">
-        <div className="wrap">
-          <div className="section-head reveal">
-            <span className="eyebrow">05 / Agendamento</span>
-            <h2 className="h-1">Marcar uma primeira escuta.</h2>
+      {/* ── CTA Agendamento ── */}
+      <section className="section" id="contato">
+        <div className="wrap" style={{ textAlign: 'center', maxWidth: '640px', margin: '0 auto' }}>
+          <span className="eyebrow reveal">Primeiro passo</span>
+          <h2 className="h-2 reveal" style={{ marginTop: '12px' }}>Marcar uma primeira escuta.</h2>
+          <p className="lede reveal" style={{ margin: '16px auto 32px', textAlign: 'center' }}>
+            Escreva-me. Em até 48 horas retorno com horários disponíveis para o nosso primeiro encontro.
+          </p>
+          <div className="reveal" style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <Link href="/agendar" className="btn">
+              Agendar sessão&nbsp;→
+            </Link>
+            <Link href="/contato" className="btn ghost">
+              Falar comigo
+            </Link>
           </div>
-          <BookingSection />
         </div>
       </section>
     </main>
