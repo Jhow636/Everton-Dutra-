@@ -17,7 +17,7 @@ export default function CalEmbed({ calLink }: { calLink: string }) {
       layout: 'month_view',
     });
     window.Cal('ui', {
-      styles: { branding: { brandColor: '#024959' } },
+      styles: { branding: { brandColor: '#A8553A' } },
       hideEventTypeDetails: false,
       layout: 'month_view',
     });
