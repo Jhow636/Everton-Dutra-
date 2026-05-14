@@ -6,9 +6,10 @@ import Script from 'next/script';
 // Para adicionar posts: cole aqui as URLs dos posts do Instagram
 // Exemplo: 'https://www.instagram.com/p/CODIGO_DO_POST/'
 const POSTS: string[] = [
-  // 'https://www.instagram.com/p/SEU_POST_1/',
-  // 'https://www.instagram.com/p/SEU_POST_2/',
-  // 'https://www.instagram.com/p/SEU_POST_3/',
+  'https://www.instagram.com/reel/DXsrmWsDPtK/',
+  'https://www.instagram.com/reel/DXYWKmLjHJd/',
+  'https://www.instagram.com/reel/DXP52WVhsNn/',
+  'https://www.instagram.com/p/DWd06QUjPo-/',
 ];
 
 export default function InstagramFeed() {
