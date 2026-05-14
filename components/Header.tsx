@@ -49,7 +49,6 @@ export default function Header() {
 
   const navItems = [
     { label: 'Sobre', href: '/sobre', anchor: 'sobre' },
-    { label: 'Abordagem', href: '/#abordagem', anchor: 'abordagem' },
     { label: 'FAQ', href: '/faq', anchor: 'faq' },
     { label: 'Contato', href: '/contato', anchor: 'contato' },
   ];
@@ -78,8 +77,7 @@ export default function Header() {
         {/* Brand */}
         <Link href="/" className="brand" aria-label="Início">
           <span className="brand-badge" aria-hidden="true" />
-          <span>Everton <em>Dutra</em></span>
-          <span className="brand-tag">Psicanálise</span>
+          <span>Everton Dutra Psicanalista</span>
         </Link>
 
         {/* Desktop nav */}
