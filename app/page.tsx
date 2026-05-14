@@ -1,289 +1,245 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import Link from 'next/link';
-import FAQAccordion from '@/components/FAQAccordion';
+import HomeFAQ from '@/components/HomeFAQ';
+import BookingSection from '@/components/BookingSection';
 
 export const metadata: Metadata = {
-  title: 'Everton Dutra Psicanalista — Psicanálise Online',
+  title: 'Everton Dutra — Psicanalista | Psicanálise Online e Presencial',
   description:
-    'Atendimento em psicanálise com Everton Dutra. Um espaço de escuta e presença, onde o humano encontra o humano, no seu tempo e na sua verdade.',
+    'Atendimento em psicanálise com Everton Dutra. Uma travessia ao silêncio e à palavra. Sessões online para o Brasil e exterior e presenciais em Belo Horizonte.',
   alternates: { canonical: 'https://evertondutra.com.br' },
 };
 
-const faqPreview = [
+const principles = [
   {
-    id: 'hp-faq1',
-    question: 'O que é a Psicanálise?',
-    answer:
-      'A psicanálise é um processo de escuta e autoconhecimento que ajuda você a compreender emoções, conflitos internos e padrões que se repetem na vida. Criada por Sigmund Freud, ela parte da ideia de que nem tudo o que nos afeta está consciente — e que dar sentido a isso pode aliviar o sofrimento e ampliar escolhas.',
+    num: '01',
+    title: 'A escuta como presença',
+    body: 'Antes de interpretar, é preciso escutar. A presença do analista cria o campo em que a palavra do sujeito pode emergir sem julgamento.',
   },
   {
-    id: 'hp-faq2',
-    question: 'Como funciona uma sessão de Psicanálise?',
-    answer:
-      'A sessão acontece por meio da fala, no seu tempo. Você pode falar sobre o que quiser — situações do dia a dia, sentimentos, dúvidas ou até silêncios. O analista escuta e intervém de forma pontual, ajudando a ampliar a compreensão do que está sendo vivido.',
+    num: '02',
+    title: 'O inconsciente como guia',
+    body: 'Sonhos, lapsos, sintomas — o inconsciente se manifesta onde menos se espera. A análise aprende a ler essas formações.',
   },
   {
-    id: 'hp-faq3',
-    question: 'Posso fazer Psicanálise online?',
-    answer:
-      'Sim. A psicanálise online é uma modalidade consolidada e eficaz. O vínculo, a escuta e o trabalho clínico se mantêm, oferecendo mais praticidade, conforto e privacidade, sem perder a profundidade do processo analítico.',
+    num: '03',
+    title: 'O tempo do sujeito',
+    body: 'Cada processo tem seu próprio ritmo. A análise não segue protocolos: segue o sujeito, seu tempo e suas possibilidades.',
   },
+  {
+    num: '04',
+    title: 'A transferência como motor',
+    body: 'O vínculo analítico não é um obstáculo — é o principal instrumento do trabalho. É nela que o sujeito repete e, repetindo, pode mudar.',
+  },
+  {
+    num: '05',
+    title: 'A palavra que transforma',
+    body: 'Dizer é diferente de pensar. Quando o sujeito fala e se escuta, algo se desloca. A palavra tem efeito sobre o corpo e sobre o laço social.',
+  },
+  {
+    num: '06',
+    title: 'A ética do desejo',
+    body: 'A análise não prescreve como viver. Ela visa que o sujeito se torne capaz de sustentar seu próprio desejo — com mais liberdade.',
+  },
+];
+
+const themes = [
+  { name: 'Ansiedade e ataques de pânico', tag: 'Sofrimento psíquico' },
+  { name: 'Depressão e vazio existencial', tag: 'Afeto' },
+  { name: 'Conflitos relacionais e amorosos', tag: 'Laço social' },
+  { name: 'Questões identitárias e de gênero', tag: 'Subjetividade' },
+  { name: 'Luto e perdas', tag: 'Elaboração' },
+  { name: 'Inibição, procrastinação, bloqueios', tag: 'Sintoma' },
+  { name: 'Autoconhecimento e desenvolvimento', tag: 'Desejo' },
 ];
 
 export default function HomePage() {
   return (
     <main>
       {/* ── Hero ── */}
-      <section className="section" id="hero">
-        <div className="container hero">
-          <div>
-            <div className="eyebrow reveal reveal-up" data-anim-delay="0ms">
-              Cuidado, sigilo e acolhimento
+      <section className="hero">
+        <div className="wrap">
+          <p className="eyebrow reveal" style={{ marginBottom: '16px' }}>
+            ● Atendimento online e presencial — Belo Horizonte
+          </p>
+          <div className="hero-grid split">
+            {/* Left: copy */}
+            <div>
+              <h1 className="h-display hero-title reveal">
+                Uma travessia<br />
+                ao <em style={{ fontStyle: 'italic' }}>silêncio</em><br />
+                e à palavra.
+              </h1>
+              <p className="lede reveal">
+                Cada sessão é um encontro singular — um tempo dedicado à escuta
+                profunda, sem julgamentos.
+              </p>
+              <div
+                className="reveal"
+                style={{ display: 'flex', gap: '12px', marginTop: '28px', flexWrap: 'wrap' }}
+              >
+                <a href="#agendar" className="btn">
+                  Agendar primeira escuta →
+                </a>
+                <a href="#sobre" className="btn ghost">
+                  Conhecer Everton
+                </a>
+              </div>
+
+              <div className="hero-meta reveal">
+                <div className="hero-meta-item">
+                  <span className="label">Modalidade</span>
+                  <span className="value">Online · Presencial</span>
+                </div>
+                <div className="hero-meta-item">
+                  <span className="label">Sessões</span>
+                  <span className="value">50 min</span>
+                </div>
+                <div className="hero-meta-item">
+                  <span className="label">Frequência</span>
+                  <span className="value">Semanal</span>
+                </div>
+              </div>
             </div>
-            <h1 className="reveal reveal-left" data-anim-delay="80ms">
-              Everton Dutra Psicanalista
-            </h1>
-            <p className="reveal reveal-up" data-anim-delay="160ms">
-              Um espaço de escuta e presença, onde o humano encontra o humano, no seu tempo e na sua verdade.
-            </p>
-            <div
-              className="reveal reveal-right"
-              data-anim-delay="240ms"
-              style={{ display: 'flex', gap: '12px', marginTop: '14px', flexWrap: 'wrap' }}
-            >
-              <Link className="btn btn-primary" href="/agendar">
-                Agendar sessão
-              </Link>
-              <Link className="btn btn-howitworks" href="#abordagem">
-                Como funciona
-              </Link>
+
+            {/* Right: photo */}
+            <div className="hero-figure reveal">
+              <Image
+                src="/fotos/img2-everton.jpg"
+                alt="Everton Dutra — Psicanalista"
+                width={600}
+                height={750}
+                priority
+                className="hero-figure-img"
+                style={{ width: '100%', height: 'auto', aspectRatio: '4/5', objectFit: 'cover', borderRadius: '2px' }}
+              />
+              <p className="hero-figure-caption">Everton Dutra — Psicanalista</p>
             </div>
           </div>
-          <div className="hero-media reveal reveal-zoom img-anim" aria-hidden="true" />
+        </div>
+      </section>
+
+      {/* ── Sobre ── */}
+      <section className="section" id="sobre">
+        <div className="wrap">
+          <div className="section-head reveal">
+            <span className="eyebrow">01 / Sobre</span>
+            <h2 className="h-1">Uma trajetória de escuta.</h2>
+          </div>
+          <div className="sobre-grid">
+            {/* Portrait */}
+            <div className="reveal">
+              <Image
+                src="/fotos/img1-everton.jpg"
+                alt="Retrato de Everton Dutra"
+                width={480}
+                height={640}
+                className="portrait"
+                style={{ width: '100%', aspectRatio: '3/4', objectFit: 'cover', borderRadius: '2px' }}
+              />
+            </div>
+
+            {/* Texto */}
+            <div className="sobre-body reveal">
+              <p>
+                <strong>Meu interesse pela psicanálise</strong> nasceu de dentro — da própria experiência
+                com a escuta e com o autoconhecimento. Foram anos de mergulho interior, de autoanálise e
+                de uma busca incessante por compreender a vida, os afetos e a complexidade da mente humana.
+              </p>
+              <p>
+                Esse percurso me conduziu, de forma natural, a um lugar de escuta — não apenas do outro,
+                mas também de mim mesmo. Compreendi que a psicanálise não é apenas uma técnica: é uma
+                ética, uma forma de estar com o outro em sua singularidade.
+              </p>
+              <p>
+                Atendo adultos em sofrimento psíquico de diversas naturezas — ansiedade, depressão,
+                conflitos relacionais, questões identitárias, luto e bloqueios existenciais — sempre a
+                partir de uma escuta que respeita o tempo e a verdade de cada sujeito.
+              </p>
+
+              <blockquote className="pullquote">
+                &ldquo;A análise não promete respostas. Oferece algo mais valioso: a possibilidade de se
+                tornar autor da própria história.&rdquo;
+              </blockquote>
+
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                <p style={{ margin: 0 }}>
+                  <strong>Formação</strong> — Psicanálise, com aprofundamento na obra de Freud e Lacan.
+                </p>
+                <p style={{ margin: 0 }}>
+                  <strong>Abordagem</strong> — Psicanalítica de orientação lacaniana.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Interstitial ── */}
+      <section className="interstitial">
+        <div className="wrap">
+          <blockquote className="reveal">
+            &ldquo;O sujeito encontra espaço para dizer e, ao dizer, se escutar.&rdquo;
+          </blockquote>
         </div>
       </section>
 
       {/* ── Abordagem ── */}
-      <section className="section" id="abordagem">
-        <div className="container">
-          <div className="section-title">
-            <h2 className="reveal reveal-up">Minha abordagem</h2>
+      <section className="section tinted" id="abordagem">
+        <div className="wrap">
+          <div className="section-head reveal">
+            <span className="eyebrow">02 / Abordagem</span>
+            <h2 className="h-1">A escuta como método.</h2>
           </div>
-          <p className="section-sub reveal reveal-up" data-anim-delay="100ms">
-            Atendo dentro da abordagem psicanalítica, com foco em escuta clínica aprofundada e manejo
-            das formações do inconsciente. Meu trabalho tem sido majoritariamente com adultos, em
-            atendimentos online, trabalhando demandas relacionadas a ansiedade, conflitos relacionais,
-            questões identitárias e processos de sofrimento psíquico mais estruturais.
-          </p>
-          <div className="grid grid-3">
-            <article className="card feature reveal reveal-up" data-anim-delay="0ms">
-              <div className="feature-icon">
-                <Image src="/fotos/orelha.png" alt="" loading="lazy" width={44} height={44} />
-              </div>
-              <h3>O lugar da escuta</h3>
-              <p>Um espaço onde a fala ganha sentido e o silêncio é também uma forma de dizer.</p>
-            </article>
-            <article className="card feature reveal reveal-up" data-anim-delay="100ms">
-              <div className="feature-icon">
-                <Image
-                  src="/fotos/gerenciamento-de-tempo.png"
-                  alt=""
-                  loading="lazy"
-                  width={44}
-                  height={44}
-                />
-              </div>
-              <h3>O tempo do sujeito</h3>
-              <p>Cada processo tem seu ritmo: nem antes, nem depois. Apenas o tempo necessário para se escutar.</p>
-            </article>
-            <article className="card feature reveal reveal-up" data-anim-delay="200ms">
-              <div className="feature-icon">
-                <Image
-                  src="/fotos/handshake-de-parceria.png"
-                  alt=""
-                  loading="lazy"
-                  width={44}
-                  height={44}
-                />
-              </div>
-              <h3>A ética do encontro</h3>
-              <p>A confidencialidade é o alicerce do vínculo. O cuidado, a linguagem que o sustenta.</p>
-            </article>
+          <div className="abordagem-grid">
+            {principles.map((p) => (
+              <article key={p.num} className="principle reveal">
+                <span className="num">{p.num}</span>
+                <h3 className="title">{p.title}</h3>
+                <p className="body">{p.body}</p>
+              </article>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* ── Sobre (resumo) ── */}
-      <section className="section" id="sobre">
-        <div className="container grid grid-2">
-          <div className="reveal reveal-left">
-            <h2>Sobre o psicanalista</h2>
-            <p>
-              <strong>Meu interesse pela psicanálise</strong> nasceu da própria experiência com a
-              terapia e com o autoconhecimento.
-              <br />
-              <br />
-              Foram anos de <em>mergulho interior</em>, de autoanálise e de uma busca incessante por
-              compreender a vida, os afetos e a complexidade da mente humana.
-              <br />
-              <br />
-              Esse percurso me conduziu, de forma natural, a um lugar de escuta — não apenas do outro,
-              mas também de mim mesmo.
-            </p>
-            <Link
-              href="/sobre"
-              className="btn btn-howitworks"
-              style={{ marginTop: '16px', display: 'inline-flex' }}
-            >
-              Conhecer mais →
-            </Link>
+      {/* ── Temas ── */}
+      <section className="section" id="temas">
+        <div className="wrap">
+          <div className="section-head reveal">
+            <span className="eyebrow">03 / Para quem</span>
+            <h2 className="h-1">A análise se oferece a quem deseja escutar-se.</h2>
           </div>
-          <div className="reveal reveal-zoom">
-            <Image
-              className="img-sobre img-anim"
-              src="/fotos/img1-everton.jpg"
-              alt="Psicanalista Everton Dutra"
-              loading="lazy"
-              width={800}
-              height={600}
-              style={{ width: '100%', height: 'auto' }}
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* ── Quote / Análise ── */}
-      <section className="section section-analise">
-        <div className="container grid grid-2">
-          <div className="analise-text reveal reveal-right">
-            <h2>O que pode acontecer quando você se escuta de verdade</h2>
-            <p>
-              Escutar-se de verdade implica aceitar a complexidade da própria história, reconhecer
-              limites, contradições e desejos. A análise não promete soluções, mas oferece algo mais
-              duradouro: a possibilidade de uma relação mais honesta consigo mesmo.
-            </p>
-            <blockquote>
-              &ldquo;Cada história tem sua voz, seu tempo e sua maneira de se revelar. Na análise, não há
-              respostas prontas — há escuta, presença e acolhimento.&rdquo;
-            </blockquote>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Contato ── */}
-      <section className="section" id="contato">
-        <div className="container">
-          <div className="section-title">
-            <h2 className="reveal reveal-up">Entre em contato</h2>
-          </div>
-          <p className="section-sub reveal reveal-up" data-anim-delay="100ms">
-            Dê o primeiro passo para uma escuta sensível e transformadora. Respondo o quanto antes.
-          </p>
-          <div className="contact-grid">
-            <article className="card contact-card reveal reveal-left" data-anim-delay="0ms">
-              <div>
-                <h3>Um espaço para você</h3>
-                <p className="muted">Converse comigo pelo WhatsApp. É simples, direto e sigiloso.</p>
+          <div className="themes">
+            {themes.map((t) => (
+              <div key={t.name} className="theme-row reveal">
+                <span className="theme-name">{t.name}</span>
+                <span className="theme-tag">{t.tag}</span>
               </div>
-              <Link
-                className="btn btn-primary"
-                href="https://wa.me/5531995563539?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20sess%C3%A3o%20de%20psican%C3%A1lise."
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Agendar pelo WhatsApp
-              </Link>
-              <Link href="/agendar" className="btn btn-howitworks">
-                Agendar pelo Cal.com
-              </Link>
-            </article>
-            <div className="contact-info reveal reveal-right" data-anim-delay="120ms">
-              <ul className="contact-list">
-                <li>
-                  <span className="contact-badge">
-                    <Image
-                      className="image-contact"
-                      src="/fotos/whatsapp.png"
-                      alt=""
-                      loading="lazy"
-                      width={24}
-                      height={24}
-                    />
-                  </span>
-                  <div>
-                    <strong>WhatsApp</strong>
-                    <p className="muted">
-                      <a href="https://wa.me/5531995563539">(+55) 31 99556-3539</a>
-                    </p>
-                  </div>
-                </li>
-                <li>
-                  <span className="contact-badge">
-                    <Image
-                      className="image-contact"
-                      src="/fotos/o-email.png"
-                      alt=""
-                      loading="lazy"
-                      width={24}
-                      height={24}
-                    />
-                  </span>
-                  <div>
-                    <strong>E-mail</strong>
-                    <p className="muted">
-                      <a href="mailto:E.dutra2101@gmail.com">E.dutra2101@gmail.com</a>
-                    </p>
-                  </div>
-                </li>
-                <li>
-                  <span className="contact-badge">
-                    <Image
-                      className="image-contact"
-                      src="/fotos/instagram.png"
-                      alt=""
-                      loading="lazy"
-                      width={24}
-                      height={24}
-                    />
-                  </span>
-                  <div>
-                    <strong>Instagram</strong>
-                    <p className="muted">
-                      <a
-                        href="https://instagram.com/everton_dutra_psicanalista"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        @everton_dutra_psicanalista
-                      </a>
-                    </p>
-                  </div>
-                </li>
-              </ul>
-              <p className="muted privacy-note">Sigilo e ética profissional garantidos.</p>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* ── FAQ (preview) ── */}
-      <section className="section" id="faq" aria-labelledby="faq-title">
-        <div className="container">
-          <div className="section-title">
-            <h2 id="faq-title" className="reveal reveal-up">
-              Perguntas Frequentes
-            </h2>
+      {/* ── FAQ ── */}
+      <section className="section tinted" id="faq">
+        <div className="wrap">
+          <div className="section-head reveal">
+            <span className="eyebrow">04 / Como funciona</span>
+            <h2 className="h-1">Perguntas frequentes.</h2>
           </div>
-          <p className="section-sub reveal reveal-up" data-anim-delay="100ms">
-            Esclareça suas principais dúvidas sobre o processo analítico.
-          </p>
-          <FAQAccordion items={faqPreview} />
-          <div style={{ textAlign: 'center', marginTop: '32px' }}>
-            <Link href="/faq" className="btn btn-howitworks">
-              Ver todas as perguntas →
-            </Link>
+          <HomeFAQ />
+        </div>
+      </section>
+
+      {/* ── Booking ── */}
+      <section className="section" id="agendar">
+        <div className="wrap">
+          <div className="section-head reveal">
+            <span className="eyebrow">05 / Agendamento</span>
+            <h2 className="h-1">Marcar uma primeira escuta.</h2>
           </div>
+          <BookingSection />
         </div>
       </section>
     </main>

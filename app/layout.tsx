@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Lato } from 'next/font/google';
+import { DM_Sans, JetBrains_Mono, Instrument_Serif } from 'next/font/google';
 import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -7,9 +7,25 @@ import GoogleAnalytics from '@/components/GoogleAnalytics';
 import RevealScript from '@/components/RevealScript';
 import WhatsAppButton from '@/components/WhatsAppButton';
 
-const lato = Lato({
+const dmSans = DM_Sans({
   subsets: ['latin'],
-  weight: ['400', '700', '900'],
+  weight: ['300', '400', '500'],
+  variable: '--font-sans',
+  display: 'swap',
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  weight: ['400', '500'],
+  variable: '--font-mono',
+  display: 'swap',
+});
+
+const instrumentSerif = Instrument_Serif({
+  subsets: ['latin'],
+  weight: ['400'],
+  style: ['normal', 'italic'],
+  variable: '--font-serif',
   display: 'swap',
 });
 
@@ -93,7 +109,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className={lato.className}>
+      <body className={[dmSans.variable, jetbrainsMono.variable, instrumentSerif.variable, dmSans.className].join(' ')}>
         <GoogleAnalytics />
         <Header />
         {children}
