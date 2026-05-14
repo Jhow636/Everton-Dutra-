@@ -5,6 +5,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
 import RevealScript from '@/components/RevealScript';
+import WhatsAppButton from '@/components/WhatsAppButton';
 
 const lato = Lato({
   subsets: ['latin'],
@@ -97,6 +98,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Header />
         {children}
         <Footer />
+        <WhatsAppButton />
         <RevealScript />
       </body>
     </html>
