@@ -49,7 +49,6 @@ export default function Header() {
 
   const navItems = [
     { label: 'Sobre', href: '/sobre', anchor: 'sobre' },
-    { label: 'Abordagem', href: '/#abordagem', anchor: 'abordagem' },
     { label: 'FAQ', href: '/faq', anchor: 'faq' },
     { label: 'Contato', href: '/contato', anchor: 'contato' },
   ];
