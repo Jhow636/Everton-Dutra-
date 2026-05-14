@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
+import InstagramFeed from '@/components/InstagramFeed';
 
 export const metadata: Metadata = {
   title: 'Everton Dutra — Psicanalista | Psicanálise Online',
@@ -101,6 +102,26 @@ export default function HomePage() {
               Saiba mais sobre minha abordagem&nbsp;→
             </Link>
           </div>
+        </div>
+      </section>
+
+      {/* ── Instagram ── */}
+      <section className="section tinted" id="instagram">
+        <div className="wrap">
+          <div className="section-head reveal">
+            <span className="eyebrow">No Instagram</span>
+            <h2 className="h-2">
+              <a
+                href="https://instagram.com/everton_dutra_psicanalista"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ color: 'inherit', textDecoration: 'none' }}
+              >
+                @everton_dutra_psicanalista
+              </a>
+            </h2>
+          </div>
+          <InstagramFeed />
         </div>
       </section>
 
