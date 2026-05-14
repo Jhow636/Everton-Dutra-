@@ -213,16 +213,20 @@ a { color: inherit; text-decoration: none; }
   display: flex;
   align-items: center;
   gap: 10px;
-  font-family: var(--serif);
-  font-size: 18px;
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 600;
   color: var(--ink);
   text-decoration: none;
+  letter-spacing: .01em;
 }
 
+.brand em { font-style: normal; }
+
 .brand-badge {
-  width: 34px;
-  height: 34px;
-  border-radius: 8px;
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
   background: url(/fotos/logo.png) center/cover;
   flex-shrink: 0;
 }
