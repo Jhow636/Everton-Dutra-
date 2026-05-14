@@ -7,7 +7,7 @@ export default function Footer() {
           {/* Col 1 — quote */}
           <div>
             <p className="foot-quote">
-              &ldquo;A clínica psicanalítica é um espaço de escuta radical onde o sujeito encontra
+              &ldquo;A clínica psicanalítica é um espaço onde o sujeito encontra
               lugar para dizer e, ao dizer, se escutar.&rdquo;
             </p>
             <p>Everton Dutra, Psicanalista</p>
