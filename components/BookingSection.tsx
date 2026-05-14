@@ -2,20 +2,17 @@
 
 import { useState } from 'react';
 
-type Modality = 'Online' | 'Presencial';
-
 export default function BookingSection() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
-  const [modality, setModality] = useState<Modality>('Online');
   const [message, setMessage] = useState('');
   const [success, setSuccess] = useState(false);
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     const text = encodeURIComponent(
-      `Olá, Everton! Gostaria de agendar uma primeira escuta.\n\nNome: ${name}\nE-mail: ${email}${phone ? `\nTelefone: ${phone}` : ''}\nModalidade: ${modality}${message ? `\n\nMensagem: ${message}` : ''}`
+      `Olá, Everton! Gostaria de agendar uma primeira escuta online.\n\nNome: ${name}\nE-mail: ${email}${phone ? `\nTelefone: ${phone}` : ''}${message ? `\n\nMensagem: ${message}` : ''}`
     );
     window.open(`https://wa.me/5531995563539?text=${text}`, '_blank', 'noopener,noreferrer');
     setSuccess(true);
@@ -60,16 +57,12 @@ export default function BookingSection() {
             </span>
           </div>
           <div className="booking-info-row">
-            <span className="bi-label">Consultório</span>
-            <span className="bi-value">Belo Horizonte / MG</span>
-          </div>
-          <div className="booking-info-row">
             <span className="bi-label">Horários</span>
             <span className="bi-value">Seg — Sex, 09h às 20h</span>
           </div>
           <div className="booking-info-row">
-            <span className="bi-label">Online</span>
-            <span className="bi-value">Disponível para o Brasil e exterior</span>
+            <span className="bi-label">Modalidade</span>
+            <span className="bi-value">Online — Brasil e exterior</span>
           </div>
         </div>
       </div>
@@ -110,24 +103,6 @@ export default function BookingSection() {
             onChange={(e) => setPhone(e.target.value)}
             placeholder="+55 (31) 9 0000-0000"
           />
-        </div>
-
-        <div className="form-row">
-          <label>Modalidade</label>
-          <div className="modality">
-            {(['Online', 'Presencial'] as Modality[]).map((m) => (
-              <label key={m}>
-                <input
-                  type="radio"
-                  name="modality"
-                  value={m}
-                  checked={modality === m}
-                  onChange={() => setModality(m)}
-                />
-                {m}
-              </label>
-            ))}
-          </div>
         </div>
 
         <div className="form-row">
