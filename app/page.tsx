@@ -31,7 +31,7 @@ export default function HomePage() {
       <section className="hero">
         <div className="wrap">
           <p className="eyebrow reveal" style={{ marginBottom: '16px' }}>
-            <span style={{ color: 'var(--accent)' }}>●</span>&nbsp;&nbsp;Atendimento online — Brasil e exterior
+            <span style={{ color: 'var(--accent)' }}>●</span>&nbsp;&nbsp;Atendimento online
           </p>
           <div className="hero-grid split">
             <div>
