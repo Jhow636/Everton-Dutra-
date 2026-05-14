@@ -211,12 +211,20 @@ a { color: inherit; text-decoration: none; }
 
 .brand {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   gap: 10px;
   font-family: var(--serif);
   font-size: 18px;
   color: var(--ink);
   text-decoration: none;
+}
+
+.brand-badge {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  background: url(/fotos/logo.png) center/cover;
+  flex-shrink: 0;
 }
 
 .brand em {
@@ -978,3 +986,73 @@ a { color: inherit; text-decoration: none; }
   }
   .wa-float-label { display: none; }
 }
+
+/* ── Base typography (inner pages) ── */
+h1 { font-family: var(--serif); font-size: clamp(30px, 4.5vw, 52px); line-height: 1.1; letter-spacing: -.02em; color: var(--ink); margin: 0 0 12px; }
+h2 { font-family: var(--serif); font-size: clamp(22px, 3vw, 38px); line-height: 1.1; letter-spacing: -.015em; color: var(--ink); margin: 0 0 10px; }
+h3 { font-family: var(--sans); font-weight: 600; font-size: clamp(15px, 1.8vw, 19px); line-height: 1.3; color: var(--ink); margin: 0 0 6px; }
+p { margin: 0 0 12px; }
+p:last-child { margin-bottom: 0; }
+strong { color: var(--ink); }
+
+/* ── Grids (inner pages) ── */
+.grid   { display: grid; gap: clamp(24px, 4vw, 48px); }
+.grid-2 { grid-template-columns: 1fr; }
+.grid-3 { grid-template-columns: 1fr; }
+
+@media (min-width: 768px)  { .grid-2 { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 1024px) { .grid-3 { grid-template-columns: repeat(3, 1fr); } }
+
+/* ── Card (inner pages) ── */
+.card { border: 1px solid var(--rule); padding: clamp(20px, 3vw, 32px); background: var(--bg); }
+
+/* ── Section helpers (inner pages) ── */
+.section-title { margin-bottom: clamp(16px, 3vw, 24px); }
+.section-sub   { max-width: 68ch; color: var(--ink-soft); font-size: 16px; line-height: 1.7; margin-bottom: clamp(24px, 4vw, 40px); }
+
+/* ── Feature cards (inner pages) ── */
+.feature { display: flex; flex-direction: column; gap: 12px; }
+.feature-icon { width: 44px; height: 44px; border-radius: 10px; background: var(--bg-2); border: 1px solid var(--rule); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+
+/* ── Contact section (inner pages) ── */
+.contact-grid { display: grid; grid-template-columns: 1fr; gap: clamp(16px, 3vw, 32px); align-items: start; }
+@media (min-width: 900px) { .contact-grid { grid-template-columns: 1.2fr .8fr; } }
+
+.contact-card { border: 1px solid var(--rule); padding: clamp(20px, 3vw, 32px); background: var(--bg); display: flex; flex-direction: column; gap: 16px; }
+.contact-info { border: 1px solid var(--rule); padding: clamp(20px, 3vw, 24px); }
+.contact-badge { width: 36px; height: 36px; border-radius: 8px; background: var(--bg-2); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.contact-list  { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 16px; }
+.contact-list li { display: flex; gap: 12px; align-items: flex-start; }
+.contact-list strong { display: block; font-size: 14px; font-weight: 600; color: var(--ink); margin-bottom: 2px; }
+.contact-list .muted a:hover { color: var(--accent); }
+.image-contact { width: 20px; height: 20px; }
+.privacy-note  { font-size: 12px; color: var(--ink-soft); margin-top: 12px; }
+
+/* ── Sobre invertido (inner pages) ── */
+.sobre-invertido .img-sobre { order: -1; }
+@media (max-width: 768px) { .sobre-invertido .img-sobre { order: initial; } }
+.img-anim { transition: transform .6s ease; }
+.img-anim:hover { transform: scale(1.015); }
+.img-sobre { border-radius: 2px; }
+
+/* ── Quote/analise section (inner pages) ── */
+.section-analise { background: var(--ink); color: var(--bg); }
+.analise-text h2 { color: var(--bg); }
+.analise-text p  { color: rgba(242,237,228,.82); line-height: 1.8; }
+.analise-text blockquote {
+  font-style: italic;
+  color: rgba(242,237,228,.9);
+  border-left: 2px solid var(--accent);
+  padding-left: 16px;
+  margin: 20px 0 0;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* ── Agendar intro (inner page) ── */
+.agendar-intro { max-width: 600px; margin-bottom: 8px; }
+.agendar-intro p { color: var(--ink-soft); line-height: 1.7; }
+
+/* ── Footer grid alias ── */
+.footer-grid { display: grid; gap: 28px; grid-template-columns: 1fr; }
+@media (min-width: 768px) { .footer-grid { grid-template-columns: 1.2fr .8fr .8fr; } }
