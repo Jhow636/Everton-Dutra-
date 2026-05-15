@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   },
 };
 
-const CAL_LINK = process.env.NEXT_PUBLIC_CAL_LINK ?? '';
+const CAL_LINK = process.env.NEXT_PUBLIC_CAL_LINK ?? 'everton-dutra-mhlblf/30min';
 
 export default function AgendarPage() {
   return (
