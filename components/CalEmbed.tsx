@@ -3,22 +3,21 @@
 import { useEffect } from 'react';
 import Script from 'next/script';
 
+type CalFn = ((...args: unknown[]) => void) & { loaded?: boolean };
+
 declare global {
   interface Window {
-    Cal: ((...args: unknown[]) => void) & { loaded?: boolean };
+    Cal?: CalFn;
   }
 }
 
 function mountEmbed(calLink: string) {
-  if (!window.Cal) return;
+  const Cal = window.Cal;
+  if (!Cal) return;
   const el = document.getElementById('cal-embed');
   if (el) el.innerHTML = '';
-  window.Cal('inline', {
-    elementOrSelector: '#cal-embed',
-    calLink,
-    layout: 'month_view',
-  });
-  window.Cal('ui', {
+  Cal('inline', { elementOrSelector: '#cal-embed', calLink, layout: 'month_view' });
+  Cal('ui', {
     styles: { branding: { brandColor: '#A8553A' } },
     hideEventTypeDetails: false,
     layout: 'month_view',
@@ -27,14 +26,13 @@ function mountEmbed(calLink: string) {
 
 export default function CalEmbed({ calLink }: { calLink: string }) {
   useEffect(() => {
-    // Script já carregado em visita anterior — reinicializa direto
-    if (window.Cal?.loaded) {
-      mountEmbed(calLink);
-    }
+    if (window.Cal) mountEmbed(calLink);
   }, [calLink]);
 
   const handleLoad = () => {
-    window.Cal('init', { origin: 'https://cal.com' });
+    const Cal = window.Cal;
+    if (!Cal) return;
+    Cal('init', { origin: 'https://cal.com' });
     mountEmbed(calLink);
   };
 
@@ -46,10 +44,7 @@ export default function CalEmbed({ calLink }: { calLink: string }) {
         onLoad={handleLoad}
       />
       <div className="cal-wrapper">
-        <div
-          id="cal-embed"
-          style={{ width: '100%', minHeight: '700px', overflow: 'auto' }}
-        />
+        <div id="cal-embed" style={{ width: '100%', minHeight: '700px', overflow: 'auto' }} />
       </div>
     </>
   );
