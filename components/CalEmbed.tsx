@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Script from 'next/script';
 
 type CalFn = ((...args: unknown[]) => void) & {
@@ -29,13 +29,27 @@ function mountEmbed(calLink: string) {
 }
 
 export default function CalEmbed({ calLink }: { calLink: string }) {
+  const [ready, setReady] = useState(false);
+
+  // Detecta quando o Cal.com injetou conteúdo no div
+  useEffect(() => {
+    const el = document.getElementById('cal-embed');
+    if (!el) return;
+    const observer = new MutationObserver(() => {
+      if (el.children.length > 0) {
+        setReady(true);
+        observer.disconnect();
+      }
+    });
+    observer.observe(el, { childList: true });
+    return () => observer.disconnect();
+  }, []);
+
   // Visitas seguintes: Cal já está carregado, reinicializa direto
   useEffect(() => {
     if (window.Cal) mountEmbed(calLink);
   }, [calLink]);
 
-  // Bootstrap completo do Cal.com (primeira visita)
-  // O snippet cria window.Cal como fila e injeta embed.js no <head>
   const bootstrap = `
 (function(C,A,L){let p=function(a,ar){a.q.push(ar)};let d=C.document;
 C.Cal=C.Cal||function(){let cal=C.Cal;let ar=arguments;
@@ -55,9 +69,46 @@ Cal("ui",{styles:{branding:{brandColor:"#A8553A"}},hideEventTypeDetails:false,la
       <Script id="cal-bootstrap" strategy="afterInteractive">
         {bootstrap}
       </Script>
-      <div className="cal-wrapper">
-        <div id="cal-embed" style={{ width: '100%', minHeight: '700px', overflow: 'auto' }} />
+      <div className="cal-wrapper" style={{ position: 'relative' }}>
+        {!ready && (
+          <div style={{
+            position: 'absolute',
+            inset: 0,
+            minHeight: '700px',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '16px',
+            color: 'var(--muted, #888)',
+            fontSize: '14px',
+          }}>
+            <svg
+              width="32" height="32"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              style={{ animation: 'spin 1s linear infinite', opacity: 0.5 }}
+            >
+              <circle cx="12" cy="12" r="10" strokeOpacity="0.25" />
+              <path d="M12 2a10 10 0 0 1 10 10" strokeLinecap="round" />
+            </svg>
+            <span>Carregando calendário…</span>
+          </div>
+        )}
+        <div
+          id="cal-embed"
+          style={{
+            width: '100%',
+            minHeight: '700px',
+            overflow: 'auto',
+            opacity: ready ? 1 : 0,
+            transition: 'opacity 0.3s ease',
+          }}
+        />
       </div>
+      <style>{`@keyframes spin{to{transform:rotate(360deg)}}`}</style>
     </>
   );
 }
