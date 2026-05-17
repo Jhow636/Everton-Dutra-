@@ -42,7 +42,7 @@ export default function Footer() {
 
         <div className="foot-bottom">
           <p>© {year} Everton Dutra. Todos os direitos reservados.</p>
-
+          <p style={{ fontSize: '12px', opacity: 0.5, marginTop: '4px' }}>CBPC 2022-3072</p>
         </div>
       </div>
     </footer>
