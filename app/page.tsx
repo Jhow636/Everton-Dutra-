@@ -41,8 +41,8 @@ export default function HomePage() {
                 e <em style={{ fontStyle: 'italic', color: 'var(--accent)' }}>presença</em>.
               </h1>
               <p className="lede reveal">
-                Atendimento em psicanálise com Everton Dutra. Sessões online, com sigilo,
-                acolhimento e respeito ao seu tempo.
+                Psicanálise clínica para quem deseja compreender os próprios conflitos emocionais e subjetivos.
+                Sessões online com Everton Dutra, em um espaço de escuta sustentado pela ética, pelo sigilo e pela singularidade de cada sujeito.
               </p>
               <div className="reveal" style={{ display: 'flex', gap: '12px', marginTop: '28px', flexWrap: 'wrap' }}>
                 <Link href="/agendar" className="btn">
