@@ -8,7 +8,6 @@ import RevealScript from '@/components/RevealScript';
 import WhatsAppButton from '@/components/WhatsAppButton';
 
 const GTM_ID = 'GTM-KBKCBN3C';
-const GA_ID = 'G-3J38QJMW3Y';
 
 const dmSans = DM_Sans({
   subsets: ['latin'],
@@ -111,14 +110,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        {/* Google Analytics */}
-        <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="afterInteractive" />
-        <Script id="ga-init" strategy="afterInteractive">{`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', '${GA_ID}');
-        `}</Script>
         {/* Google Tag Manager */}
         <Script id="gtm-script" strategy="afterInteractive">{`
           (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
