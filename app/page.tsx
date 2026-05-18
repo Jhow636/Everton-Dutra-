@@ -70,7 +70,7 @@ export default function HomePage() {
 
             <div className="hero-figure reveal">
               <Image
-                src="/fotos/img3-everton.jpg"
+                src="/fotos/img4-everton.jpg"
                 alt="Everton Dutra — Psicanalista"
                 width={600}
                 height={750}
