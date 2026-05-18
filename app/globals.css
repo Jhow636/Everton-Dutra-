@@ -874,11 +874,16 @@ a { color: inherit; text-decoration: none; }
 
 .foot-bottom {
   padding-top: 28px;
+  padding-bottom: 80px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
   flex-wrap: wrap;
+}
+
+@media (min-width: 768px) {
+  .foot-bottom { padding-bottom: 28px; }
 }
 
 .foot-bottom p {

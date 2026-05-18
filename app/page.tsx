@@ -41,8 +41,8 @@ export default function HomePage() {
                 e <em style={{ fontStyle: 'italic', color: 'var(--accent)' }}>presença</em>.
               </h1>
               <p className="lede reveal">
-                Psicanálise clínica para quem deseja compreender os próprios conflitos emocionais e subjetivos.
-                Sessões online com Everton Dutra, em um espaço de escuta sustentado pela ética, pelo sigilo e pela singularidade de cada sujeito.
+                Um espaço de escuta e presença.<br />
+                Psicanálise clínica voltada à escuta e elaboração dos conflitos emocionais e subjetivos, sustentada pela ética, pelo sigilo e pelo respeito à singularidade de cada sujeito.
               </p>
               <div className="reveal" style={{ display: 'flex', gap: '12px', marginTop: '28px', flexWrap: 'wrap' }}>
                 <Link href="/agendar" className="btn">
@@ -70,7 +70,7 @@ export default function HomePage() {
 
             <div className="hero-figure reveal">
               <Image
-                src="/fotos/img2-everton.jpg"
+                src="/fotos/img3-everton.jpg"
                 alt="Everton Dutra — Psicanalista"
                 width={600}
                 height={750}
@@ -87,7 +87,7 @@ export default function HomePage() {
         <div className="wrap">
           <div className="section-head reveal">
             <span className="eyebrow">Minha abordagem</span>
-            <h2 className="h-2">Psicanálise freudiana.</h2>
+            <h2 className="h-2">Psicanálise Freudiana.</h2>
           </div>
           <div className="abordagem-grid">
             {features.map((f) => (
