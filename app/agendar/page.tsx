@@ -6,11 +6,11 @@ export const metadata: Metadata = {
   title: 'Agendar Sessão — Everton Dutra Psicanalista',
   description:
     'Agende sua sessão de psicanálise online com Everton Dutra. Escolha o dia e horário que melhor se encaixam na sua rotina.',
-  alternates: { canonical: 'https://evertondutra.com.br/agendar' },
+  alternates: { canonical: 'https://entrevozesesilencio.com.br/agendar' },
   openGraph: {
     title: 'Agendar Sessão — Everton Dutra Psicanalista',
     description: 'Agende sua sessão de psicanálise online com Everton Dutra.',
-    url: 'https://evertondutra.com.br/agendar',
+    url: 'https://entrevozesesilencio.com.br/agendar',
   },
 };
 

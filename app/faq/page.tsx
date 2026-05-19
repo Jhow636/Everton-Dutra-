@@ -6,11 +6,11 @@ export const metadata: Metadata = {
   title: 'Perguntas Frequentes — Psicanálise',
   description:
     'Tire suas dúvidas sobre psicanálise, sessões online, diferenças entre psicanálise e psicologia e muito mais com Everton Dutra.',
-  alternates: { canonical: 'https://evertondutra.com.br/faq' },
+  alternates: { canonical: 'https://entrevozesesilencio.com.br/faq' },
   openGraph: {
     title: 'Perguntas Frequentes — Everton Dutra Psicanalista',
     description: 'Tire suas dúvidas sobre psicanálise e sessões online.',
-    url: 'https://evertondutra.com.br/faq',
+    url: 'https://entrevozesesilencio.com.br/faq',
   },
 };
 

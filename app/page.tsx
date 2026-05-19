@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: 'Everton Dutra — Psicanalista | Psicanálise Online',
   description:
     'Atendimento em psicanálise com Everton Dutra. Um espaço de escuta e presença, onde o humano encontra o humano, no seu tempo e na sua verdade. Sessões online para o Brasil e exterior.',
-  alternates: { canonical: 'https://evertondutra.com.br' },
+  alternates: { canonical: 'https://entrevozesesilencio.com.br' },
 };
 
 const features = [

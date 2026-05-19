@@ -6,11 +6,11 @@ export const metadata: Metadata = {
   title: 'Contato — Everton Dutra Psicanalista',
   description:
     'Entre em contato com Everton Dutra pelo WhatsApp, e-mail ou Instagram. Dê o primeiro passo para uma escuta sensível e transformadora.',
-  alternates: { canonical: 'https://evertondutra.com.br/contato' },
+  alternates: { canonical: 'https://entrevozesesilencio.com.br/contato' },
   openGraph: {
     title: 'Contato — Everton Dutra Psicanalista',
     description: 'Entre em contato pelo WhatsApp, e-mail ou Instagram.',
-    url: 'https://evertondutra.com.br/contato',
+    url: 'https://entrevozesesilencio.com.br/contato',
   },
 };
 

@@ -6,11 +6,11 @@ export const metadata: Metadata = {
   title: 'Sobre — Everton Dutra Psicanalista',
   description:
     'Conheça Everton Dutra, psicanalista com formação em psicanálise. Uma trajetória de escuta, presença e acolhimento em sessões online.',
-  alternates: { canonical: 'https://evertondutra.com.br/sobre' },
+  alternates: { canonical: 'https://entrevozesesilencio.com.br/sobre' },
   openGraph: {
     title: 'Sobre — Everton Dutra Psicanalista',
     description: 'Conheça a trajetória e a abordagem de Everton Dutra, psicanalista.',
-    url: 'https://evertondutra.com.br/sobre',
+    url: 'https://entrevozesesilencio.com.br/sobre',
   },
 };
 

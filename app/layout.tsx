@@ -32,7 +32,7 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://evertondutra.com.br'),
+  metadataBase: new URL('https://entrevozesesilencio.com.br'),
   title: {
     default: 'Everton Dutra Psicanalista',
     template: '%s | Everton Dutra Psicanalista',
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'pt_BR',
-    url: 'https://evertondutra.com.br',
+    url: 'https://entrevozesesilencio.com.br',
     siteName: 'Everton Dutra Psicanalista',
     title: 'Everton Dutra — Psicanalista',
     description: 'Um espaço de escuta e presença, no seu tempo e na sua verdade.',
@@ -83,7 +83,7 @@ export const metadata: Metadata = {
     },
   },
   icons: { icon: '/fotos/logo.png' },
-  alternates: { canonical: 'https://evertondutra.com.br' },
+  alternates: { canonical: 'https://entrevozesesilencio.com.br' },
 };
 
 const jsonLd = {
@@ -92,7 +92,7 @@ const jsonLd = {
   name: 'Everton Dutra Psicanalista',
   description:
     'Atendimento em psicanálise com Everton Dutra. Cuidado, sigilo e acolhimento em sessões online.',
-  url: 'https://evertondutra.com.br',
+  url: 'https://entrevozesesilencio.com.br',
   telephone: '+5531995563539',
   email: 'E.dutra2101@gmail.com',
   sameAs: ['https://instagram.com/everton_dutra_psicanalista'],
