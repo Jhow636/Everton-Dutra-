@@ -7,7 +7,7 @@ import Footer from '@/components/Footer';
 import RevealScript from '@/components/RevealScript';
 import WhatsAppButton from '@/components/WhatsAppButton';
 
-const GTM_ID = 'GTM-KBKCBN3C';
+const GTM_ID = 'GTM-TZHJSNP9';
 
 const dmSans = DM_Sans({
   subsets: ['latin'],
